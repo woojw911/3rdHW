@@ -1,0 +1,19 @@
+module select_reg(reg_index, reg0, reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg_data);
+	input [2:0] reg_index;
+	input [15:0] reg0, reg1, reg2, reg3, reg4, reg5, reg6, reg7;
+	output reg [15:0] reg_data;
+	always @(reg_index or, reg0 or reg1 or reg2 or reg3 or reg4 or reg5 or reg6 or reg7) begin
+		case(reg_index)
+			3'b000 : reg_data = reg0;
+			3'b001 : reg_data = reg1;
+			3'b010 : reg_data = reg2;
+			3'b011 : reg_data = reg3;
+			3'b100 : reg_data = reg4;
+			3'b101 : reg_data = reg5;
+			3'b110 : reg_data = reg6;
+			3'b111 : reg_data = reg7;
+		endcase
+	end
+	
+endmodule
+			

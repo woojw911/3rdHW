@@ -1,0 +1,19 @@
+module phasecounter (clock, reset, exec, phase);
+input clock, reset, exec;
+output [2:0] phase;
+
+reg [2:0] cycle;
+
+always @(posedge clock) begin
+ if (cycle == 3'b101 ) begin
+ cycle <= 3'b000;
+ end else begin
+ cycle <= cycle + 1;
+ end
+end
+
+assign phase = cycle;
+
+endmodule
+
+

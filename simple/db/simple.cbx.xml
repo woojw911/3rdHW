@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="simple">
+		<CBX_INST_ENTRY INSTANCE_NAME="|simple|ram01:ram|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_hai1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

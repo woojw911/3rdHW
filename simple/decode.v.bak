@@ -1,0 +1,38 @@
+module decode(wr_dat,AR_dat,BR_dat,op2,op3,d
+);
+
+input [15:0] wr_dat;
+output [2:0] AR_dat, BR_dat,op2;
+output [3:0] op3;
+output [7:0] d;
+
+always@(wr_dat) begin
+case(wr_dat[15:14])
+2'b00:begin //LD
+AR_dat = wr_dat[13:11];
+BR_dat = wr_dat[10:8];
+d = wr_dat[7:0];
+end
+2'b01:begin //ST
+AR_dat = wr_dat[13:11];
+BR_dat = wr_dat[10:8];
+d = wr_dat[7:0];
+end
+2'b10:begin //LI,B...
+op2 = wr_dat[13:11];
+BR_dat = wr_dat[10:8];
+d = wr_dat[7:0];
+end
+2'b11:begin //ADD,SUB,SLL...
+AR_dat = wr_dat[13:11];
+BR_dat = wr_dat[10:8];
+op3 = wr_dat[7:4];
+d = wr_dat[3:0];
+end
+
+endcase
+
+end
+
+
+endmodule

@@ -1,0 +1,54 @@
+module decode(wr_dat, AR_dat, BR_dat, op3, d, alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en);
+
+	input [15:0] wr_dat;
+	output reg alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en;
+	output reg [2:0] AR_dat, BR_dat;
+	output reg [3:0] op3;
+	output reg [7:0] d;
+	
+	always@(wr_dat) begin
+		case(wr_dat[15:14])
+			2'b00:begin //LD
+						AR_dat = wr_dat[13:11];
+						BR_dat = wr_dat[10:8];
+						d = wr_dat[7:0];
+					end
+			2'b01:begin //ST
+						AR_dat = wr_dat[13:11];
+						BR_dat = wr_dat[10:8];
+						d = wr_dat[7:0];
+					end
+			2'b10:begin //LI,B...
+						AR_dat = wr_dat[13:11]; //op2
+						BR_dat = wr_dat[10:8];
+						d = wr_dat[7:0];
+						casex (wr_dat[13:11])
+							3'b0?? : begin
+											{alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en} = {1'b0, 1'b0, 1'b0, 1'b1, 1'b0, 1'b1};
+					end
+			2'b11:begin //ADD,SUB,SLL...
+						AR_dat = wr_dat[13:11];
+						BR_dat = wr_dat[10:8];
+						op3 = wr_dat[7:4];
+						d = wr_dat[3:0];
+						casex(wr_dat[7:4])
+							4'b0???: begin
+											{alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en} = {1'b1, 1'b0, 1'b0, 1'b0, 1'b1, 1'b1};
+										end
+							4'b10??: begin
+											{alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en} = {1'b0, 1'b1, 1'b0, 1'b0, 1'b1, 1'b1};
+										end
+							4'b1101: begin
+											{alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en} = {1'b0, 1'b0, 1'b1, 1'b0, 1'b1};
+										end
+							default: begin
+											{alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en} = {1'b0, 1'b0, 1'b0, 1'b0, 1'b0};
+										end
+						endcase
+					end
+		endcase
+
+	end
+
+
+endmodule

@@ -1,0 +1,130 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+# Date created = 14:20:58  4月 20, 2017
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		simple_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE30F23I7
+set_global_assignment -name TOP_LEVEL_ENTITY simple
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:20:58  4月 20, 2017"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE processor.v
+set_global_assignment -name QIP_FILE ram01.qip
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE simple.v
+set_global_assignment -name VERILOG_FILE register_.v
+set_global_assignment -name VERILOG_FILE unit_reg.v
+set_global_assignment -name VERILOG_FILE select_reg.v
+set_global_assignment -name VERILOG_FILE reg_file.v
+set_global_assignment -name VERILOG_FILE szcv.v
+set_global_assignment -name VERILOG_FILE datapath.v
+set_global_assignment -name VERILOG_FILE PC.v
+set_global_assignment -name VERILOG_FILE seg7out.v
+set_global_assignment -name VERILOG_FILE reg_data_out.v
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_B12 -to clk
+set_location_assignment PIN_V16 -to segsel
+set_location_assignment PIN_F15 -to exec
+set_location_assignment PIN_E15 -to reset
+set_global_assignment -name MIF_FILE output_files/simple.mif
+set_global_assignment -name VERILOG_FILE output_files/fetch.v
+set_location_assignment PIN_AB10 -to Dseg[6]
+set_location_assignment PIN_W10 -to Dseg[5]
+set_location_assignment PIN_AA10 -to Dseg[4]
+set_location_assignment PIN_AB9 -to Dseg[3]
+set_location_assignment PIN_V10 -to Dseg[2]
+set_location_assignment PIN_AA9 -to Dseg[1]
+set_location_assignment PIN_U10 -to Dseg[0]
+set_location_assignment PIN_Y6 -to Aseg[6]
+set_location_assignment PIN_AB5 -to Aseg[5]
+set_location_assignment PIN_W6 -to Aseg[4]
+set_location_assignment PIN_AB4 -to Aseg[3]
+set_location_assignment PIN_AA5 -to Aseg[2]
+set_location_assignment PIN_AA4 -to Aseg[1]
+set_location_assignment PIN_V5 -to Aseg[0]
+set_location_assignment PIN_V9 -to Cseg[6]
+set_location_assignment PIN_AB8 -to Cseg[5]
+set_location_assignment PIN_U9 -to Cseg[4]
+set_location_assignment PIN_W8 -to Cseg[3]
+set_location_assignment PIN_AA8 -to Cseg[2]
+set_location_assignment PIN_V8 -to Cseg[1]
+set_location_assignment PIN_Y8 -to Cseg[0]
+set_location_assignment PIN_U8 -to Bseg[6]
+set_location_assignment PIN_AA7 -to Bseg[5]
+set_location_assignment PIN_T8 -to Bseg[4]
+set_location_assignment PIN_V7 -to Bseg[3]
+set_location_assignment PIN_Y7 -to Bseg[2]
+set_location_assignment PIN_U7 -to Bseg[1]
+set_location_assignment PIN_W7 -to Bseg[0]
+set_location_assignment PIN_V13 -to Eseg[6]
+set_location_assignment PIN_V12 -to Eseg[5]
+set_location_assignment PIN_U13 -to Eseg[4]
+set_location_assignment PIN_V11 -to Eseg[3]
+set_location_assignment PIN_U12 -to Eseg[2]
+set_location_assignment PIN_U11 -to Eseg[1]
+set_location_assignment PIN_T12 -to Eseg[0]
+set_location_assignment PIN_V14 -to Fseg[6]
+set_location_assignment PIN_R14 -to Fseg[5]
+set_location_assignment PIN_U14 -to Fseg[4]
+set_location_assignment PIN_Y13 -to Fseg[3]
+set_location_assignment PIN_AB13 -to Fseg[2]
+set_location_assignment PIN_W13 -to Fseg[1]
+set_location_assignment PIN_AA13 -to Fseg[0]
+set_location_assignment PIN_W15 -to Gseg[6]
+set_location_assignment PIN_T15 -to Gseg[5]
+set_location_assignment PIN_V15 -to Gseg[4]
+set_location_assignment PIN_AA14 -to Gseg[3]
+set_location_assignment PIN_R15 -to Gseg[2]
+set_location_assignment PIN_W14 -to Gseg[1]
+set_location_assignment PIN_AB14 -to Gseg[0]
+set_location_assignment PIN_AB16 -to Hseg[6]
+set_location_assignment PIN_U16 -to Hseg[5]
+set_location_assignment PIN_AA16 -to Hseg[4]
+set_location_assignment PIN_AB15 -to Hseg[3]
+set_location_assignment PIN_T16 -to Hseg[2]
+set_location_assignment PIN_AA15 -to Hseg[1]
+set_location_assignment PIN_R16 -to Hseg[0]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

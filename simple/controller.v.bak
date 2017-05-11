@@ -1,0 +1,44 @@
+module controller (
+clk, reset, exec, op1, q, AR_idx, BR_idx, PCWrite, IRWrite,
+//PCWriteCond, lorD, MemRead, MemWrite,MemtoReg, PCSource, ALUSrcB, ALUSrcA, RegWrite, RegDst
+);
+input [1:0] op1;
+input clk, reset, exec;
+input [15:0] q;
+
+output PCWrite,IRWrite;
+
+parameter P1=0;
+parameter P2=1;
+parameter P3=2;
+parameter P4=3;
+parameter P5=4;
+
+reg [2:0] phase = 0;
+
+phasecounter phasecounter1 ( .clock(clock), .reset(reset), .exec(exec), .phase(phase));
+
+
+
+always @(phase) begin
+case(phase)
+P1: begin
+IRWrite=1'b1;
+PCWrite=1'b1;
+end
+
+P2: begin
+end
+
+P3: begin
+end
+
+P4: begin
+end
+
+P5: begin
+end
+
+endcase
+end
+endmodule

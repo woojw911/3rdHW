@@ -1,0 +1,3 @@
+module reg_data_out(clk, data_out)
+
+endmodule

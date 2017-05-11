@@ -1,0 +1,105 @@
+module simple(clock);
+input clock;
+reg clock_ram= 1'b0, wren_=1'b0, alu_on = 1'b0, sft_on = 1'b0;
+reg [15:0] PC,IR,TEMP,load=0,store=0;
+reg [11:0] address;
+reg signed [15:0] r[0:7];
+reg [2:0] turn = 3'b000, AR, BR;
+reg [3:0] SZCV, cal_op, cal_szcv;
+reg [7:0] cal_d;
+reg signed [7:0] d;
+reg signed [15:0] cal_a, cal_b, cal_c;
+ram01 ram1( .address(address), .clock(clock_ram), .data(store), .wren(wren_), .q(load) );
+ALU alu1( .on(alu_on), .a(cal_a), .b(cal_b), .op(cal_op), .c(cal_c), .SZCV(cal_szcv) );
+Shift shift1( .on(sft_on), .b(cal_b), .op(cal_op), .d(cal_d), .c(cal_c), .SZCV(cal_szcv) );
+always @(posedge clock) begin
+	if(turn == 3'b000) begin // P1
+		address = PC;
+		clock_ram = 1;
+		load = IR;
+		clock_ram = 0;
+		PC = PC + 4;
+		turn <= 3'b001;
+	end else if(turn == 3'b001) begin // P2
+		AR = IR[13:11];
+		BR = IR[10:8];
+		turn <= 3'b010;
+	end else if(turn == 3'b010) begin // P3
+		case (IR[15:14])
+			2'b11 : begin 
+						  if(IR[7:4] < 4'b0111) begin // ALU
+						     cal_a = r[AR];
+							  cal_b = r[BR];
+							  cal_op = IR[7:4];
+							  alu_on = 1;
+							  SZCV = cal_szcv;
+							  r[BR] = cal_c;
+							  alu_on = 0;
+					     end else if(IR[7:4]>4'b0111 && IR[7:4] <4'b1100) begin // Shift
+						     cal_b = r[BR];
+							  cal_op = IR[7:4];
+							  cal_d = IR[3:0];
+							  sft_on = 1;
+							  SZCV = cal_szcv;
+							  r[BR] = cal_c;
+							  sft_on = 0;
+					     end else if(IR[7:4]>4'b1011 && IR[7:4] <4'b1110) begin // I/O
+					     end else if(IR[7:4] == 4'b1111) begin // halt
+					     end
+					  end
+			2'b00 : d = IR[7:0]; 
+			2'b01 : d = IR[7:0]; 
+			2'b10 : d = IR[7:0];
+			default ;
+		endcase
+		turn <= 3'b011;
+	end else if(turn == 3'b011) begin // P4
+		case (IR[15:14])
+			2'b00 : begin
+					  address = r[BR] + d;
+					  clock_ram = 1;
+					  r[AR] = load;
+					  clock_ram = 0;
+					  end
+			2'b01 : begin
+					  address = r[BR] + d;
+					  store = r[AR];
+					  wren_ = 1;
+					  clock_ram = 1;
+					  clock_ram = 0;
+					  end
+			2'b10 : begin 
+					  if(AR == 3'b000) begin
+						  r[BR] = d;
+					  end else if(AR == 3'b100) begin
+						  PC = PC + d;
+					  end else if(AR == 3'b111)begin
+						  if(BR == 3'b000) begin
+							  if(SZCV[2] == 1'b1) begin
+								  PC = PC + d;
+							  end
+						  end else if(BR == 3'b001) begin
+							  if(SZCV[3]^SZCV[0] == 1'b1) begin
+								  PC = PC + d;
+							  end 
+						  end else if(BR == 3'b010) begin 
+						     if(SZCV[2] | (SZCV[3] ^ SZCV[0])) begin
+								  PC = PC + d;
+							  end
+						  end else if(BR == 3'b011) begin
+							  if(SZCV[2] == 1'b0) begin
+								  PC = PC + d;
+							  end
+						  end
+					  end
+					  end
+		endcase
+		turn <= 3'b100;
+	end else if(turn == 3'b100) begin // P5
+		if(IR[15:14] == 2'b10) begin
+			PC = PC + d;
+		end
+		turn <= 3'b100;
+	end
+end
+endmodule

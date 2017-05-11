@@ -1,0 +1,27 @@
+module simple(clk, reset, exec, fourthseg, thirdseg, secondseg, firstseg, segsel);
+	input clk, reset, exec;
+	output [6:0] fourthseg, thirdseg, secondseg, firstseg;
+	output segsel;
+	
+	wire alu_en, sft_en, out_en, rdAR_en, rdBR_en, wr_en, PCWrite, IRWrite;
+	wire phase1, phase2, phase3, phase4, phase5, phase6;
+	wire [2:0] AR_idx, BR_idx, wr_idx;
+	wire [3:0] op3;
+	wire [7:0] immd;
+	wire [15:0] wr_dat;
+	wire [11:0] pcaddress;
+	wire [15:0] din;
+	wire [15:0] reg_data_out;
+	PC IPC(phase6, inaddress, addressplus, address);
+	
+	ram01 ram(address,phase1,dout,wr_en,din);
+	
+	phasecounter Iphasecounter(clk, reset, exec, phase1, phase2, phase3, phase4, phase5, phase6);
+	
+	controller Icontroller(phase2, reset, exec, din, AR_idx, BR_idx, op3, immd, alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en, PCWrite, IRWrite,);
+	
+	datapath Idatapath(phase3, phase5, alu_en, sft_en, immd_en, op3, immd, AR_idx, BR_idx, rdAR_en, rdBR_en, wr_idx,data_in, data_in_ctl, out_en, reg_data_out);
+	
+	seg7out(reg_data_out, fourthseg, thirdseg, secondseg, firstseg, segsel);
+
+endmodule

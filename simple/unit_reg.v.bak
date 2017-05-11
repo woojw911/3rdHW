@@ -1,0 +1,11 @@
+module unit_reg(clock, write_en, write_data, read_data);
+input clock, write_en;
+input [15:0] write_data;
+output reg [15:0] read_data;
+
+always @(clock) begin
+	if(write_en) begin
+		read_data = write_data;
+	end
+end
+endmodule
