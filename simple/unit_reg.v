@@ -3,7 +3,7 @@ input clk, wr_en;
 input [15:0] wr_dat;
 output reg [15:0] rd_dat;
 
-always @(clk) begin
+always @(posedge clk) begin
 	if(wr_en) begin
 		rd_dat = wr_dat;
 	end

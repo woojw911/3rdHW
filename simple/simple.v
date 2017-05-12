@@ -15,13 +15,13 @@ module simple(clk, reset, exec, Aseg, Bseg, Cseg, Dseg, segsel, Eseg, Fseg, Gseg
 	wire [15:0] reg_data_out;
 	phasecounter Iphasecounter(clk, reset, exec, phase1, phase2, phase3, phase4, phase5, phase6);
 	
-	PC IPC(phase6, inaddress, addressplus, address);
+	PC IPC(phase6, reset, address);
 	
 	ram01 ram(address,phase1,dout,write_ram_en,din);
 	
 	controller Icontroller(phase2, reset, exec, din, AR_idx, BR_idx, wr_idx, op3, immd, alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en, wr_en);
 	
-	datapath Idatapath(phase3, phase5, alu_en, sft_en, immd_en, op3, immd, AR_idx, BR_idx, rdAR_en, rdBR_en, wr_idx, wr_en, din, in_en, out_en, reg_data_out);
+	datapath Idatapath(phase3, phase5, reset, alu_en, sft_en, immd_en, op3, immd, AR_idx, BR_idx, rdAR_en, rdBR_en, wr_idx, wr_en, din, in_en, out_en, reg_data_out);
 	
 	seg7out Iseg7out(reg_data_out, Aseg, Bseg, Cseg, Dseg);
 	

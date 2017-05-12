@@ -1,5 +1,5 @@
-module datapath(clk, wrclk, alu_en, sft_en, immd_en, op3, immd, AR_idx, BR_idx, rdAR_en, rdBR_en, wr_idx, wr_en, data_in, in_en, out_en, data_out);
-	input clk, wrclk, alu_en, sft_en, in_en, out_en, immd_en;
+module datapath(clk, wrclk, reset, alu_en, sft_en, immd_en, op3, immd, AR_idx, BR_idx, rdAR_en, rdBR_en, wr_idx, wr_en, data_in, in_en, out_en, data_out);
+	input clk, wrclk, reset, alu_en, sft_en, in_en, out_en, immd_en;
 	input [2:0] AR_idx, BR_idx, wr_idx;
 	input [3:0] op3;
 	input [7:0] immd;
@@ -19,8 +19,8 @@ module datapath(clk, wrclk, alu_en, sft_en, immd_en, op3, immd, AR_idx, BR_idx, 
 	
 	assign bus_T = sft_en ? sft_out : 16'hz;
 	
-	//reg_data_out Iregdataout(clk, bus_B, out_en, data_out);
-	assign data_out = bus_B;
+	reg_data_out Iregdataout(clk, reset, bus_B, out_en, data_out);
+
 	assign bus_T = immd_en ? immd : 16'hz;
 	
 	assign bus_T = in_en ? data_in : 16'bz;

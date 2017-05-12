@@ -46,6 +46,7 @@ module decode(IR, AR_idx, BR_idx, wr_idx, op3, d, alu_en, sft_en, out_en, immd_e
 							4'b1101: begin
 											{alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en, wr_en} = {1'b0, 1'b0, 1'b1, 1'b0, 1'b0, 1'b1, 1'b0};
 										end
+										
 							default: begin
 											{alu_en, sft_en, out_en, immd_en, rdAR_en, rdBR_en, wr_en} = {1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0};
 										end

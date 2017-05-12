@@ -1,11 +1,11 @@
-module PC(clk, inaddress, addressplus, outaddress);
-	input clk;
-	input addressplus;
-	input [11:0] inaddress;
+module PC(clk, reset, outaddress);
+	input clk, reset;
 	output reg [11:0] outaddress = 11'd0;
-	always @(posedge clk) begin
-		outaddress = outaddress + 1;
+	always @(posedge clk or posedge reset) begin
+		if(reset == 1) begin
+			outaddress = 11'd0;
+		end else begin
+			outaddress = outaddress + 1;
+		end
 	end
-	
-
 endmodule

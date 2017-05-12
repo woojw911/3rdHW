@@ -1,5 +1,5 @@
 Analysis & Synthesis report for simple
-Thu May 11 17:37:37 2017
+Fri May 12 11:53:12 2017
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -25,12 +25,11 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
  17. Port Connectivity Checks: "seg7out:Nseg7out"
  18. Port Connectivity Checks: "datapath:Idatapath|ALU:IALU"
  19. Port Connectivity Checks: "ram01:ram"
- 20. Port Connectivity Checks: "PC:IPC"
- 21. Port Connectivity Checks: "phasecounter:Iphasecounter"
- 22. In-System Memory Content Editor Settings
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
- 25. Analysis & Synthesis Suppressed Messages
+ 20. Port Connectivity Checks: "phasecounter:Iphasecounter"
+ 21. In-System Memory Content Editor Settings
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -56,15 +55,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 11 17:37:37 2017            ;
+; Analysis & Synthesis Status        ; Successful - Fri May 12 11:53:12 2017            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; simple                                           ;
 ; Top-level Entity Name              ; simple                                           ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 987                                              ;
-;     Total combinational functions  ; 946                                              ;
-;     Dedicated logic registers      ; 161                                              ;
-; Total registers                    ; 161                                              ;
+; Total logic elements               ; 999                                              ;
+;     Total combinational functions  ; 846                                              ;
+;     Dedicated logic registers      ; 289                                              ;
+; Total registers                    ; 289                                              ;
 ; Total pins                         ; 60                                               ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 65,536                                           ;
@@ -169,11 +168,11 @@ applicable agreement for further details.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ; < 0.1%      ;
 +----------------------------+-------------+
 
 
@@ -190,6 +189,7 @@ applicable agreement for further details.
 ; datapath.v                       ; yes             ; User Verilog HDL File        ; /home/015/a0150403/3rd HW/simple/datapath.v                               ;         ;
 ; PC.v                             ; yes             ; User Verilog HDL File        ; /home/015/a0150403/3rd HW/simple/PC.v                                     ;         ;
 ; seg7out.v                        ; yes             ; User Verilog HDL File        ; /home/015/a0150403/3rd HW/simple/seg7out.v                                ;         ;
+; reg_data_out.v                   ; yes             ; User Verilog HDL File        ; /home/015/a0150403/3rd HW/simple/reg_data_out.v                           ;         ;
 ; phasecounter.v                   ; yes             ; Auto-Found Verilog HDL File  ; /home/015/a0150403/3rd HW/simple/phasecounter.v                           ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                 ; /opt/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
@@ -220,20 +220,20 @@ applicable agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 987                      ;
+; Estimated Total logic elements              ; 999                      ;
 ;                                             ;                          ;
-; Total combinational functions               ; 946                      ;
+; Total combinational functions               ; 846                      ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 501                      ;
-;     -- 3 input functions                    ; 349                      ;
-;     -- <=2 input functions                  ; 96                       ;
+;     -- 4 input functions                    ; 529                      ;
+;     -- 3 input functions                    ; 220                      ;
+;     -- <=2 input functions                  ; 97                       ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 897                      ;
+;     -- normal mode                          ; 797                      ;
 ;     -- arithmetic mode                      ; 49                       ;
 ;                                             ;                          ;
-; Total registers                             ; 161                      ;
-;     -- Dedicated logic registers            ; 161                      ;
+; Total registers                             ; 289                      ;
+;     -- Dedicated logic registers            ; 289                      ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 60                       ;
@@ -241,8 +241,8 @@ applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0                        ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 167                      ;
-; Total fan-out                               ; 4318                     ;
-; Average fan-out                             ; 3.45                     ;
+; Total fan-out                               ; 4452                     ;
+; Average fan-out                             ; 3.48                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -251,26 +251,27 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                              ; Library Name ;
 +------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |simple                                                                ; 946 (1)           ; 161 (0)      ; 65536       ; 0            ; 0       ; 0         ; 60   ; 0            ; |simple                                                                                                                                                          ; work         ;
+; |simple                                                                ; 846 (1)           ; 289 (0)      ; 65536       ; 0            ; 0       ; 0         ; 60   ; 0            ; |simple                                                                                                                                                          ; work         ;
 ;    |PC:IPC|                                                            ; 12 (12)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|PC:IPC                                                                                                                                                   ; work         ;
-;    |controller:Icontroller|                                            ; 18 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|controller:Icontroller                                                                                                                                   ; work         ;
-;       |decode:Idecode|                                                 ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|controller:Icontroller|decode:Idecode                                                                                                                    ; work         ;
+;    |controller:Icontroller|                                            ; 20 (0)            ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|controller:Icontroller                                                                                                                                   ; work         ;
+;       |decode:Idecode|                                                 ; 20 (20)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|controller:Icontroller|decode:Idecode                                                                                                                    ; work         ;
 ;       |fetch:Ifetch|                                                   ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|controller:Icontroller|fetch:Ifetch                                                                                                                      ; work         ;
-;    |datapath:Idatapath|                                                ; 675 (24)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath                                                                                                                                       ; work         ;
-;       |ALU:IALU|                                                       ; 116 (116)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|ALU:IALU                                                                                                                              ; work         ;
-;       |Shift:IShift|                                                   ; 239 (239)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|Shift:IShift                                                                                                                          ; work         ;
-;       |reg_file:Ireg_file|                                             ; 296 (8)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file                                                                                                                    ; work         ;
+;    |datapath:Idatapath|                                                ; 573 (24)          ; 128 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath                                                                                                                                       ; work         ;
+;       |ALU:IALU|                                                       ; 124 (124)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|ALU:IALU                                                                                                                              ; work         ;
+;       |Shift:IShift|                                                   ; 240 (240)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|Shift:IShift                                                                                                                          ; work         ;
+;       |reg_data_out:Iregdataout|                                       ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_data_out:Iregdataout                                                                                                              ; work         ;
+;       |reg_file:Ireg_file|                                             ; 168 (8)           ; 128 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file                                                                                                                    ; work         ;
 ;          |select_reg:selAreg|                                          ; 80 (80)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|select_reg:selAreg                                                                                                 ; work         ;
 ;          |select_reg:selBreg|                                          ; 80 (80)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|select_reg:selBreg                                                                                                 ; work         ;
-;          |unit_reg:Ireg0|                                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0                                                                                                     ; work         ;
-;          |unit_reg:Ireg1|                                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1                                                                                                     ; work         ;
-;          |unit_reg:Ireg2|                                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2                                                                                                     ; work         ;
-;          |unit_reg:Ireg3|                                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3                                                                                                     ; work         ;
-;          |unit_reg:Ireg4|                                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4                                                                                                     ; work         ;
-;          |unit_reg:Ireg5|                                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5                                                                                                     ; work         ;
-;          |unit_reg:Ireg6|                                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6                                                                                                     ; work         ;
-;          |unit_reg:Ireg7|                                              ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7                                                                                                     ; work         ;
-;    |phasecounter:Iphasecounter|                                        ; 6 (6)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|phasecounter:Iphasecounter                                                                                                                               ; work         ;
+;          |unit_reg:Ireg0|                                              ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0                                                                                                     ; work         ;
+;          |unit_reg:Ireg1|                                              ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1                                                                                                     ; work         ;
+;          |unit_reg:Ireg2|                                              ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2                                                                                                     ; work         ;
+;          |unit_reg:Ireg3|                                              ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3                                                                                                     ; work         ;
+;          |unit_reg:Ireg4|                                              ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4                                                                                                     ; work         ;
+;          |unit_reg:Ireg5|                                              ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5                                                                                                     ; work         ;
+;          |unit_reg:Ireg6|                                              ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6                                                                                                     ; work         ;
+;          |unit_reg:Ireg7|                                              ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7                                                                                                     ; work         ;
+;    |phasecounter:Iphasecounter|                                        ; 7 (7)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|phasecounter:Iphasecounter                                                                                                                               ; work         ;
 ;    |ram01:ram|                                                         ; 71 (0)            ; 47 (0)       ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|ram01:ram                                                                                                                                                ; work         ;
 ;       |altsyncram:altsyncram_component|                                ; 71 (0)            ; 47 (0)       ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|ram01:ram|altsyncram:altsyncram_component                                                                                                                ; work         ;
 ;          |altsyncram_hai1:auto_generated|                              ; 71 (0)            ; 47 (0)       ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated                                                                                 ; work         ;
@@ -286,8 +287,8 @@ applicable agreement for further details.
 ;       |seg7withhex:first|                                              ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|seg7out:Nseg7out|seg7withhex:first                                                                                                                       ; work         ;
 ;       |seg7withhex:second|                                             ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|seg7out:Nseg7out|seg7withhex:second                                                                                                                      ; work         ;
 ;       |seg7withhex:third|                                              ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|seg7out:Nseg7out|seg7withhex:third                                                                                                                       ; work         ;
-;    |sld_hub:auto_hub|                                                  ; 113 (1)           ; 80 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|sld_hub:auto_hub                                                                                                                                         ; work         ;
-;       |sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|                   ; 112 (75)          ; 80 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst                                                                                            ; work         ;
+;    |sld_hub:auto_hub|                                                  ; 112 (1)           ; 80 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|sld_hub:auto_hub                                                                                                                                         ; work         ;
+;       |sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|                   ; 111 (74)          ; 80 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst                                                                                            ; work         ;
 ;          |sld_rom_sr:hub_info_reg|                                     ; 20 (20)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg                                                                    ; work         ;
 ;          |sld_shadow_jsm:shadow_jsm|                                   ; 17 (17)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_shadow_jsm:shadow_jsm                                                                  ; work         ;
 +------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
@@ -314,112 +315,71 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+
 ; User-Specified and Inferred Latches                                                                                                     ;
-+-----------------------------------------------------------------+----------------------------------------------+------------------------+
-; Latch Name                                                      ; Latch Enable Signal                          ; Free of Timing Hazards ;
-+-----------------------------------------------------------------+----------------------------------------------+------------------------+
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[14] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[14] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[14] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[14] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[14] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[14] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[14] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[14] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[13] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[13] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[13] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[13] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[13] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[13] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[13] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[13] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[12] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[12] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[12] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[12] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[12] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[12] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[12] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[12] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[15] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[15] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[15] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[15] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[15] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[15] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[15] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[15] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[10] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[10] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[10] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[10] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[10] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[10] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[10] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[10] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[9]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[9]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[9]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[9]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[9]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[9]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[9]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[9]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[8]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[8]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[8]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[8]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[8]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[8]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[8]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[8]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[11] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[11] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[11] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[11] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[11] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[11] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[11] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[11] ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[6]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[6]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[6]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[6]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[6]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[6]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[6]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[6]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[5]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[5]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[5]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[5]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[5]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[5]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[5]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[5]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[4]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[4]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[4]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[4]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[4]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[4]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[4]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[4]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[7]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[7]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[7]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[7]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg5|rd_dat[7]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg6|rd_dat[7]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg4|rd_dat[7]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg7|rd_dat[7]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg2|rd_dat[2]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg1|rd_dat[2]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0|rd_dat[2]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg3|rd_dat[2]  ; datapath:Idatapath|reg_file:Ireg_file|Equal0 ; yes                    ;
-; Number of user-specified and inferred latches = 170             ;                                              ;                        ;
-+-----------------------------------------------------------------+----------------------------------------------+------------------------+
-Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++----------------------------------------------------------+-----------------------------------------------------+------------------------+
+; Latch Name                                               ; Latch Enable Signal                                 ; Free of Timing Hazards ;
++----------------------------------------------------------+-----------------------------------------------------+------------------------+
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[15] ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[14] ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[13] ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[12] ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[11] ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[10] ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[9]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[8]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[7]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[6]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[5]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[4]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[3]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[2]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[1]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; datapath:Idatapath|reg_data_out:Iregdataout|data_out[0]  ; datapath:Idatapath|reg_data_out:Iregdataout|always0 ; yes                    ;
+; controller:Icontroller|decode:Idecode|out_en             ; controller:Icontroller|decode:Idecode|Mux11         ; yes                    ;
+; controller:Icontroller|decode:Idecode|alu_en             ; controller:Icontroller|decode:Idecode|Mux11         ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[15]                      ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; controller:Icontroller|decode:Idecode|sft_en             ; controller:Icontroller|decode:Idecode|Mux11         ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[15]                  ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; controller:Icontroller|decode:Idecode|wr_idx[2]          ; controller:Icontroller|decode:Idecode|Mux0          ; yes                    ;
+; controller:Icontroller|decode:Idecode|wr_idx[0]          ; controller:Icontroller|decode:Idecode|Mux0          ; yes                    ;
+; controller:Icontroller|decode:Idecode|wr_idx[1]          ; controller:Icontroller|decode:Idecode|Mux0          ; yes                    ;
+; controller:Icontroller|decode:Idecode|wr_en              ; controller:Icontroller|decode:Idecode|Mux11         ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[14]                      ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[14]                  ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[13]                      ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[13]                  ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[12]                      ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[12]                  ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[11]                      ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[11]                  ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[10]                      ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[10]                  ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[9]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[9]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[8]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[8]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[7]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[7]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[6]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[6]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[5]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[5]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[4]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[4]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[3]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[3]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[2]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[2]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[1]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[1]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; datapath:Idatapath|ALU:IALU|out[0]                       ; datapath:Idatapath|ALU:IALU|Mux16                   ; yes                    ;
+; datapath:Idatapath|Shift:IShift|out[0]                   ; datapath:Idatapath|Shift:IShift|Mux19               ; yes                    ;
+; controller:Icontroller|decode:Idecode|op3[0]             ; controller:Icontroller|decode:Idecode|Decoder1      ; yes                    ;
+; controller:Icontroller|decode:Idecode|op3[2]             ; controller:Icontroller|decode:Idecode|Decoder1      ; yes                    ;
+; controller:Icontroller|decode:Idecode|op3[1]             ; controller:Icontroller|decode:Idecode|Decoder1      ; yes                    ;
+; controller:Icontroller|decode:Idecode|op3[3]             ; controller:Icontroller|decode:Idecode|Decoder1      ; yes                    ;
+; Number of user-specified and inferred latches = 59       ;                                                     ;                        ;
++----------------------------------------------------------+-----------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -427,12 +387,12 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 161   ;
+; Total registers                              ; 289   ;
 ; Number of registers using Synchronous Clear  ; 12    ;
 ; Number of registers using Synchronous Load   ; 23    ;
-; Number of registers using Asynchronous Clear ; 51    ;
+; Number of registers using Asynchronous Clear ; 69    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 94    ;
+; Number of registers using Clock Enable       ; 227   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -442,7 +402,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                            ; Fan out ;
 +------------------------------------------------------------------------------+---------+
-; phasecounter:Iphasecounter|f                                                 ; 14      ;
+; phasecounter:Iphasecounter|f                                                 ; 15      ;
 ; sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|tdo            ; 1       ;
 ; sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg[2] ; 2       ;
 ; sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg[1] ; 3       ;
@@ -455,30 +415,30 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[2]                                        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[8]                                                   ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[9]                                                   ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:no_name_gen:info_rom_sr|word_counter[3] ;
-; 16:1               ; 4 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:no_name_gen:info_rom_sr|WORD_SR[2]      ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftRight1                                                                                                                              ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftLeft1                                                                                                                               ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[1]                                        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[0]                                                   ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[2]                                                   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:no_name_gen:info_rom_sr|word_counter[1] ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 24 LEs               ; 16 LEs                 ; Yes        ; |simple|ram01:ram|altsyncram:altsyncram_component|altsyncram_hai1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:no_name_gen:info_rom_sr|WORD_SR[1]      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftLeft0                                                                                                                               ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftRight0                                                                                                                              ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftLeft1                                                                                                                               ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|reg_file:Ireg_file|select_reg:selBreg|Mux0                                                                                                            ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|bus_T[0]                                                                                                                                              ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|reg_file:Ireg_file|select_reg:selBreg|Mux11                                                                                                           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|bus_T[3]                                                                                                                                              ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|reg_file:Ireg_file|select_reg:selAreg|Mux13                                                                                                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftLeft0                                                                                                                               ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|reg_file:Ireg_file|select_reg:selAreg|Mux1                                                                                                            ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftRight0                                                                                                                              ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|bus_T[4]                                                                                                                                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|bus_T[7]                                                                                                                                              ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftRight1                                                                                                                              ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|Mux7                                                                                                                                     ;
-; 7:1                ; 16 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|ALU:IALU|Mux4                                                                                                                                         ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|Mux0                                                                                                                                     ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|ALU:IALU|Mux10                                                                                                                                        ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftRight0                                                                                                                              ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple|datapath:Idatapath|Shift:IShift|ShiftRight0                                                                                                                              ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg[0]                                                                                       ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg[4]                                                                                          ;
 ; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|word_counter[1]                                                                    ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[2]                                                                                                ;
-; 34:1               ; 4 bits    ; 88 LEs        ; 60 LEs               ; 28 LEs                 ; Yes        ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[3]                                                                                         ;
+; 34:1               ; 4 bits    ; 88 LEs        ; 56 LEs               ; 32 LEs                 ; Yes        ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[3]                                                                                         ;
 ; 20:1               ; 4 bits    ; 52 LEs        ; 32 LEs               ; 20 LEs                 ; Yes        ; |simple|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|WORD_SR[1]                                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -600,15 +560,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "PC:IPC"                                                                                                                                                 ;
-+-----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                                                                                                                             ;
-+-----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; inaddress ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (12 bits) it drives.  Extra input bit(s) "inaddress[11..1]" will be connected to GND. ;
-+-----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "phasecounter:Iphasecounter"                                                         ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -632,7 +583,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+--------------+
 ; Partition Name   ; Elapsed Time ;
 +------------------+--------------+
-; Top              ; 00:00:03     ;
+; Top              ; 00:00:02     ;
 ; sld_hub:auto_hub ; 00:00:00     ;
 +------------------+--------------+
 
@@ -643,7 +594,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu May 11 17:37:29 2017
+    Info: Processing started: Fri May 12 11:53:04 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off simple -c simple
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Warning (12019): Can't analyze file -- file processor.v is missing
@@ -651,14 +602,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file ram01.v
     Info (12023): Found entity 1: ram01
 Info (12021): Found 1 design units, including 1 entities, in source file simple.v
     Info (12023): Found entity 1: simple
-Warning (12019): Can't analyze file -- file register_.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file unit_reg.v
     Info (12023): Found entity 1: unit_reg
 Info (12021): Found 1 design units, including 1 entities, in source file select_reg.v
     Info (12023): Found entity 1: select_reg
 Info (12021): Found 1 design units, including 1 entities, in source file reg_file.v
     Info (12023): Found entity 1: reg_file
-Warning (12019): Can't analyze file -- file szcv.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
     Info (12023): Found entity 1: datapath
 Info (12021): Found 1 design units, including 1 entities, in source file PC.v
@@ -667,9 +616,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file seg7out
     Info (12023): Found entity 1: seg7out
 Info (12021): Found 1 design units, including 1 entities, in source file reg_data_out.v
     Info (12023): Found entity 1: reg_data_out
-Warning (12019): Can't analyze file -- file output_files/fetch.v is missing
-Warning (10236): Verilog HDL Implicit Net warning at simple.v(18): created implicit net for "inaddress"
-Warning (10236): Verilog HDL Implicit Net warning at simple.v(18): created implicit net for "addressplus"
 Warning (10236): Verilog HDL Implicit Net warning at simple.v(20): created implicit net for "dout"
 Warning (10236): Verilog HDL Implicit Net warning at simple.v(22): created implicit net for "immd_en"
 Info (12127): Elaborating entity "simple" for the top level hierarchy
@@ -677,7 +623,7 @@ Warning (12125): Using design file phasecounter.v, which is not specified as a d
     Info (12023): Found entity 1: phasecounter
 Info (12128): Elaborating entity "phasecounter" for hierarchy "phasecounter:Iphasecounter"
 Info (12128): Elaborating entity "PC" for hierarchy "PC:IPC"
-Warning (10230): Verilog HDL assignment warning at PC.v(7): truncated value with size 32 to match size of target (12)
+Warning (10230): Verilog HDL assignment warning at PC.v(8): truncated value with size 32 to match size of target (12)
 Info (12128): Elaborating entity "ram01" for hierarchy "ram01:ram"
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ram01:ram|altsyncram:altsyncram_component"
 Info (12130): Elaborated megafunction instantiation "ram01:ram|altsyncram:altsyncram_component"
@@ -750,25 +696,6 @@ Info (10041): Inferred latch for "op3[3]" at decode.v(9)
 Info (12128): Elaborating entity "datapath" for hierarchy "datapath:Idatapath"
 Info (12128): Elaborating entity "reg_file" for hierarchy "datapath:Idatapath|reg_file:Ireg_file"
 Info (12128): Elaborating entity "unit_reg" for hierarchy "datapath:Idatapath|reg_file:Ireg_file|unit_reg:Ireg0"
-Warning (10235): Verilog HDL Always Construct warning at unit_reg.v(7): variable "wr_en" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at unit_reg.v(8): variable "wr_dat" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10240): Verilog HDL Always Construct warning at unit_reg.v(6): inferring latch(es) for variable "rd_dat", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "rd_dat[0]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[1]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[2]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[3]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[4]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[5]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[6]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[7]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[8]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[9]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[10]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[11]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[12]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[13]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[14]" at unit_reg.v(7)
-Info (10041): Inferred latch for "rd_dat[15]" at unit_reg.v(7)
 Info (12128): Elaborating entity "select_reg" for hierarchy "datapath:Idatapath|reg_file:Ireg_file|select_reg:selAreg"
 Warning (12125): Using design file ALU.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: ALU
@@ -833,6 +760,24 @@ Info (10041): Inferred latch for "out[12]" at Shift.v(7)
 Info (10041): Inferred latch for "out[13]" at Shift.v(7)
 Info (10041): Inferred latch for "out[14]" at Shift.v(7)
 Info (10041): Inferred latch for "out[15]" at Shift.v(7)
+Info (12128): Elaborating entity "reg_data_out" for hierarchy "datapath:Idatapath|reg_data_out:Iregdataout"
+Warning (10240): Verilog HDL Always Construct warning at reg_data_out.v(5): inferring latch(es) for variable "data_out", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "data_out[0]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[1]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[2]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[3]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[4]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[5]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[6]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[7]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[8]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[9]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[10]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[11]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[12]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[13]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[14]" at reg_data_out.v(9)
+Info (10041): Inferred latch for "data_out[15]" at reg_data_out.v(9)
 Info (12128): Elaborating entity "seg7out" for hierarchy "seg7out:Iseg7out"
 Warning (12125): Using design file seg7withhex.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: seg7withhex
@@ -886,20 +831,24 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "datapath:Idatapath|reg_file:Ireg_file|rdAR_dat[13]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "datapath:Idatapath|reg_file:Ireg_file|rdAR_dat[14]" feeding internal logic into a wire
     Warning (13049): Converted tri-state buffer "datapath:Idatapath|reg_file:Ireg_file|rdAR_dat[15]" feeding internal logic into a wire
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch controller:Icontroller|decode:Idecode|out_en has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|fetch:Ifetch|data_out[14]
 Warning (13012): Latch controller:Icontroller|decode:Idecode|alu_en has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|fetch:Ifetch|data_out[14]
-Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[14] has unsafe behavior
+Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[15] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch controller:Icontroller|decode:Idecode|sft_en has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|fetch:Ifetch|data_out[14]
 Warning (13012): Latch controller:Icontroller|decode:Idecode|wr_en has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|fetch:Ifetch|data_out[14]
+Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[13] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[12] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
-Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[15] has unsafe behavior
+Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[11] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[10] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
@@ -907,7 +856,7 @@ Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[9] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[8] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
-Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[11] has unsafe behavior
+Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[7] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[6] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
@@ -915,7 +864,7 @@ Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[5] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[4] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
-Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[7] has unsafe behavior
+Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[3] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[2] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
@@ -923,8 +872,8 @@ Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[1] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
 Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[0] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
-Warning (13012): Latch datapath:Idatapath|ALU:IALU|out[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal controller:Icontroller|decode:Idecode|op3[0]
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "segsel" is stuck at VCC
     Warning (13410): Pin "Eseg[0]" is stuck at GND
@@ -943,17 +892,14 @@ Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub
 Info (144001): Generated suppressed messages file /home/015/a0150403/3rd HW/simple/output_files/simple.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "reset"
-    Warning (15610): No output dependent on input pin "exec"
-Info (21057): Implemented 1072 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1100 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 58 output pins
-    Info (21061): Implemented 991 logic cells
+    Info (21061): Implemented 1019 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 138 warnings
-    Info: Peak virtual memory: 385 megabytes
-    Info: Processing ended: Thu May 11 17:37:37 2017
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 130 warnings
+    Info: Peak virtual memory: 389 megabytes
+    Info: Processing ended: Fri May 12 11:53:12 2017
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:07
 
